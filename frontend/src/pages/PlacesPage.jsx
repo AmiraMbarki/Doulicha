@@ -122,6 +122,7 @@ export default function PlacesPage() {
                   </div>
                 ))}
               <label className="flex items-center gap-1 justify-center border bg-transparent rounded-xl p-2 text-2xl text-gray-600">
+                <input type="file" className="hidden" />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
