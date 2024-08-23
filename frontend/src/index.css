@@ -7,6 +7,10 @@ textarea,input[type="number"]{
     @apply w-full border my-2 py-1 px-3 rounded-full ;
 }
 
+textarea{
+    height: 140px;
+}
+
 button{
     @apply bg-gray-300 ;
 }

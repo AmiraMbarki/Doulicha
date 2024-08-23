@@ -10,7 +10,12 @@ export default function Perks({ selected, onChange }) {
   return (
     <>
       <label className="border p-4  flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="free wifi" onChange={handleCbClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes("free wifi")}
+          name="free wifi"
+          onChange={handleCbClick}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -31,6 +36,7 @@ export default function Perks({ selected, onChange }) {
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
+          checked={selected.includes("restroom facilities")}
           name="restroom facilities"
           onChange={handleCbClick}
         />
@@ -54,6 +60,7 @@ export default function Perks({ selected, onChange }) {
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
+          checked={selected.includes("electric hookups")}
           name="electric hookups"
           onChange={handleCbClick}
         />
@@ -75,7 +82,12 @@ export default function Perks({ selected, onChange }) {
         <span>Electric Hookups</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="free parking" onChange={handleCbClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes("free parking")}
+          name="free parking"
+          onChange={handleCbClick}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -96,6 +108,7 @@ export default function Perks({ selected, onChange }) {
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
+          checked={selected.includes("camp hosts or guides")}
           name="camp hosts or guides"
           onChange={handleCbClick}
         />
@@ -119,6 +132,7 @@ export default function Perks({ selected, onChange }) {
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
+          checked={selected.includes("team-building activities")}
           name="team-building activities"
           onChange={handleCbClick}
         />
