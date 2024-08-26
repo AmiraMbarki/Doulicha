@@ -86,14 +86,33 @@ app.get("/profile", (req, res) => {
   const { token } = req.cookies;
   if (token) {
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-      if (err) throw err;
-      const { name, email, _id } = await User.findById(userData.id);
+      if (err) {
+        return res.status(401).json({ error: "Invalid token" });
+      }
+      const user = await User.findById(userData.id);
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+      const { name, email, _id } = user;
       res.json({ name, email, _id });
     });
   } else {
     res.json(null);
   }
 });
+
+// app.get("/profile", (req, res) => {
+//   const { token } = req.cookies;
+//   if (token) {
+//     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+//       if (err) throw err;
+//       const { name, email, _id } = await User.findById(userData.id);
+//       res.json({ name, email, _id });
+//     });
+//   } else {
+//     res.json(null);
+//   }
+// });
 
 app.post("/logout", (req, res) => {
   res.cookie("token", "").json(true);
