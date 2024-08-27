@@ -145,14 +145,14 @@ export default function PlaceGallery({ place }) {
   }
 
   return (
-    <div className="relative object-cover">
-      <div className="grid gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden px-20">
+    <div className="relative object-cover flex items-center justify-center">
+      <div className="grid gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden px-20 w-[70%] ">
         <div className="object-cover">
           {place.photos?.[0] && (
             <div>
               <Image
                 onClick={() => setShowAllPhotos(true)}
-                className="aspect-square cursor-pointer object-cover"
+                className="aspect-square cursor-pointer object-cover rounded-2xl"
                 src={place.photos[0]}
                 alt=""
               />
@@ -163,7 +163,7 @@ export default function PlaceGallery({ place }) {
           {place.photos?.[1] && (
             <Image
               onClick={() => setShowAllPhotos(true)}
-              className="aspect-square cursor-pointer object-cover"
+              className="aspect-square cursor-pointer object-cover rounded-2xl "
               src={place.photos[1]}
               alt=""
             />
@@ -172,7 +172,7 @@ export default function PlaceGallery({ place }) {
             {place.photos?.[2] && (
               <Image
                 onClick={() => setShowAllPhotos(true)}
-                className="aspect-square cursor-pointer object-cover relative top-2"
+                className="aspect-square cursor-pointer object-cover relative top-2 rounded-2xl h-[97%]"
                 src={place.photos[2]}
                 alt=""
               />
