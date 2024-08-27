@@ -131,12 +131,14 @@ export default function PlaceGallery({ place }) {
               Close photos
             </button>
           </div>
-          {place?.photos?.length > 0 &&
-            place.photos.map((photo) => (
-              <div>
-                <Image src={photo} alt="" />
-              </div>
-            ))}
+          <div className="  justify-center">
+            {place?.photos?.length > 0 &&
+              place.photos.map((photo) => (
+                <div className=" object-cover flex items-center justify-center py-4  ">
+                  <Image className="w-1/2" src={photo} alt="" />
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     );
@@ -144,7 +146,7 @@ export default function PlaceGallery({ place }) {
 
   return (
     <div className="relative object-cover">
-      <div className="grid gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden">
+      <div className="grid gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden px-20">
         <div className="object-cover">
           {place.photos?.[0] && (
             <div>
