@@ -7,7 +7,7 @@ import { UserContext } from "./UserContext";
 export default function Header() {
   const { user } = useContext(UserContext);
   return (
-    <header className="flex justify-between bg-gray-100 rounded-xl py-2 px-2 -mx-7  items-center">
+    <header className="shadow-lg bg-gray-100 bg-opacity-20 backdrop-blur-lg flex justify-between bg-gray-100 rounded-xl py-2 px-2 -mx-7  items-center">
       <Link to={"/"} className="flex items-center gap-1">
         {/* <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,17 +89,17 @@ export default function Header() {
         </button>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 ">
         <Link
           to={"/about-us"}
-          className="flex gap-2 border border-gray-300 rounded-full py-2 px-4  bg-white"
+          className="flex gap-2 text-white  rounded-full py-2 px-4  bg-primary"
         >
           About us
         </Link>
 
         <Link
           to={user ? "/account" : "/login"}
-          className="flex gap-2 border border-gray-300 rounded-full py-2 px-4  bg-white"
+          className="flex gap-2  rounded-full py-2 px-4  bg-primary text-white"
         >
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"

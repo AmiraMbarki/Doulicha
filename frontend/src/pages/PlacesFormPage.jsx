@@ -39,11 +39,11 @@ export default function PlacesFormPage() {
   }, [id]);
 
   function inputHeader(text) {
-    return <h2 className="text-2xl mt-4">{text}</h2>;
+    return <h2 className="text-2xl font-semibold mt-4">{text}</h2>;
   }
 
   function inputDescription(text) {
-    return <p className="text-gray-500 text-sm">{text}</p>;
+    return <p className="text-black text-xl">{text}</p>;
   }
 
   function preInput(header, description) {
@@ -168,7 +168,7 @@ export default function PlacesFormPage() {
           </div>
         </div>
 
-        <button className="primary my-4">Save </button>
+        <button className="primary my-4 border border-black">Save </button>
       </form>
     </div>
   );

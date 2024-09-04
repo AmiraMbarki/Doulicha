@@ -4,11 +4,12 @@
 
 input[type="text"],input[type="email"], input[type="password"],
 textarea,input[type="number"], input[type="tel"]{
-    @apply w-full border my-2 py-1 px-3 rounded-2xl ;
+    @apply w-full border my-2 py-1 px-3 rounded-2xl bg-white bg-opacity-30 backdrop-blur-lg ;
 }
 
 textarea{
     height: 140px;
+    
 }
 
 button{

@@ -9,7 +9,7 @@ export default function Perks({ selected, onChange }) {
   }
   return (
     <>
-      <label className="border p-4  flex rounded-2xl gap-2 items-center cursor-pointer">
+      <label className="border p-4  flex rounded-2xl gap-2 items-center cursor-pointer bg-primary text-white ">
         <input
           type="checkbox"
           checked={selected.includes("free wifi")}
@@ -33,7 +33,7 @@ export default function Perks({ selected, onChange }) {
 
         <span>Free Wifi</span>
       </label>
-      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer bg-primary text-white">
         <input
           type="checkbox"
           checked={selected.includes("restroom facilities")}
@@ -57,7 +57,7 @@ export default function Perks({ selected, onChange }) {
 
         <span>Restroom facilities</span>
       </label>
-      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer bg-primary text-white">
         <input
           type="checkbox"
           checked={selected.includes("electric hookups")}
@@ -81,7 +81,7 @@ export default function Perks({ selected, onChange }) {
 
         <span>Electric Hookups</span>
       </label>
-      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer bg-primary text-white ">
         <input
           type="checkbox"
           checked={selected.includes("free parking")}
@@ -105,7 +105,7 @@ export default function Perks({ selected, onChange }) {
 
         <span>Free Parking</span>
       </label>
-      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer bg-primary text-white ">
         <input
           type="checkbox"
           checked={selected.includes("camp hosts or guides")}
@@ -129,7 +129,7 @@ export default function Perks({ selected, onChange }) {
 
         <span>Camp Hosts or Guides</span>
       </label>
-      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
+      <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer bg-primary text-white ">
         <input
           type="checkbox"
           checked={selected.includes("team-building activities")}
