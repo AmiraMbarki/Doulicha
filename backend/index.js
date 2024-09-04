@@ -15,7 +15,7 @@ require("dotenv").config();
 const app = express();
 
 const bcryptSalt = bcrypt.genSaltSync(10);
-const jwtSecret = "SECRET_KEY";
+const jwtSecret = process.env.JWT_SECRET;
 
 app.use(express.json());
 app.use(cookieParser());
@@ -59,26 +59,63 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// app.post("/login", async (req, res) => {
+//   const { email, password } = req.body;
+//   const userDoc = await User.findOne({ email });
+//   if (userDoc) {
+//     const passOk = bcrypt.compareSync(password, userDoc.password);
+//     if (passOk) {
+//       jwt.sign(
+//         { email: userDoc.email, id: userDoc._id },
+//         jwtSecret,
+//         {},
+//         (err, token) => {
+//           if (err) throw err;
+//           res.cookie("token", token).json(userDoc);
+//         }
+//       );
+//     } else {
+//       res.status(422).json("password not ok");
+//     }
+//   } else {
+//     res.json("not found");
+//   }
+// });
+
+//   VERSION  improuved of app.post("/login"... down
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  const userDoc = await User.findOne({ email });
-  if (userDoc) {
-    const passOk = bcrypt.compareSync(password, userDoc.password);
-    if (passOk) {
-      jwt.sign(
-        { email: userDoc.email, id: userDoc._id },
-        jwtSecret,
-        {},
-        (err, token) => {
-          if (err) throw err;
-          res.cookie("token", token).json(userDoc);
-        }
-      );
-    } else {
-      res.status(422).json("password not ok");
+
+  try {
+    const userDoc = await User.findOne({ email });
+
+    if (!userDoc) {
+      return res.status(401).json({ error: "User not found" });
     }
-  } else {
-    res.json("not found");
+
+    const passOk = bcrypt.compareSync(password, userDoc.password);
+
+    if (!passOk) {
+      return res.status(401).json({ error: "Invalid password" });
+    }
+
+    jwt.sign(
+      { email: userDoc.email, id: userDoc._id },
+      jwtSecret,
+      { expiresIn: "1h" }, // Example: token expires in 1 hour
+      (err, token) => {
+        if (err) {
+          return res.status(500).json({ error: "Internal server error" });
+        }
+        res
+          .cookie("token", token, {
+            httpOnly: true,
+          })
+          .json(userDoc);
+      }
+    );
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 

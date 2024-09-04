@@ -7,6 +7,12 @@ textarea,input[type="number"], input[type="tel"]{
     @apply w-full border my-2 py-1 px-3 rounded-2xl bg-white bg-opacity-30 backdrop-blur-lg ;
 }
 
+input.guest-input{
+    @apply  backdrop-blur-none border-black
+}
+
+
+
 textarea{
     height: 140px;
     

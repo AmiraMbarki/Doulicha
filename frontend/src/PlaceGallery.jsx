@@ -133,8 +133,11 @@ export default function PlaceGallery({ place }) {
           </div>
           <div className="  justify-center">
             {place?.photos?.length > 0 &&
-              place.photos.map((photo) => (
-                <div className=" object-cover flex items-center justify-center py-4  ">
+              place.photos.map((photo, index) => (
+                <div
+                  key={index}
+                  className=" object-cover flex items-center justify-center py-4  "
+                >
                   <Image className="w-1/2" src={photo} alt="" />
                 </div>
               ))}

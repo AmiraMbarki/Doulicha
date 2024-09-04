@@ -46,25 +46,25 @@ export default function BookingWidget({ place }) {
   }
 
   return (
-    <div className="bg-white bg-opacity-20 backdrop-blur-lg shadow p-4 rounded-2xl">
-      <div className="text-2xl text-center">
+    <div className="bg-gray-100 border-black  shadow p-4 rounded-2xl">
+      <div className="text-2xl  text-center">
         Price: {place.price}TND / per night
       </div>
-      <div className="border rounded-2xl mt-4">
-        <div className="flex ">
-          <div className="py-3 px-4 ">
+      <div className="border border-black rounded-2xl mt-4">
+        <div className="flex border-b border-black gap-16">
+          <div className="flex py-3 px-4 ">
             <label>Check in:</label>
             <input
-              className="bg-white bg-opacity-60 backdrop-blur-lg rounded-l"
+              className="bg-white bg-opacity-80   rounded-l"
               type="date"
               value={checkIn}
               onChange={(ev) => setCheckIn(ev.target.value)}
             />
           </div>
-          <div className=" py-3 px-4 border-l">
+          <div className="flex py-3 px-4 border-l border-black">
             <label>Check out:</label>
             <input
-              className="bg-white bg-opacity-60 backdrop-blur-lg rounded-l"
+              className="bg-white bg-opacity-80  rounded-l"
               type="date"
               value={checkOut}
               onChange={(ev) => setCheckOut(ev.target.value)}
@@ -75,6 +75,7 @@ export default function BookingWidget({ place }) {
           <div className="py-3 px-4 border-t">
             <label>Number of guests:</label>
             <input
+              className="guest-input"
               type="number"
               value={numberOfGuests}
               onChange={(ev) => setNumberOfGuests(ev.target.value)}

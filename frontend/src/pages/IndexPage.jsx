@@ -16,7 +16,7 @@ export default function IndexPage() {
       <div className="relative z-10 mt-8  grid gap-x-20 gap-y-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-4 py-8">
         {places.length > 0 &&
           places.map((place) => (
-            <Link to={"/place/" + place._id}>
+            <Link key={place._id} to={"/place/" + place._id}>
               <div className="bg-gray-500 mb-2 rounded-2xl flex  w-[100%] h-[80%] ">
                 {place.photos?.[0] && (
                   <Image
