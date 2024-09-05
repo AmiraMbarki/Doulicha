@@ -14,6 +14,8 @@ import { UserContextProvider } from "./UserContext";
 import ProfilePage from "./pages/ProfilePage";
 import PlacePage from "./pages/PlacePage";
 import AboutUs from "./pages/AboutUs";
+import AdminDashboard from "./pages/AdminDashboard";
+import { AdminRoute } from "./AdminRoute";
 
 axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.withCredentials = true;
@@ -34,6 +36,15 @@ function App() {
           <Route path="/account/bookings" element={<BookingsPage />} />
           <Route path="/account/bookings/:id" element={<BookingPage />} />
           <Route path="/about-us" element={<AboutUs />} />
+          {/* <Route path="/admin" element={<AdminDashboard />} /> */}
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminDashboard />
+              </AdminRoute>
+            }
+          />
         </Route>
       </Routes>
     </UserContextProvider>

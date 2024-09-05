@@ -83,6 +83,7 @@ app.post("/register", async (req, res) => {
 // });
 
 //   VERSION  improuved of app.post("/login"... down
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -100,7 +101,7 @@ app.post("/login", async (req, res) => {
     }
 
     jwt.sign(
-      { email: userDoc.email, id: userDoc._id },
+      { email: userDoc.email, id: userDoc._id, isAdmin: userDoc.isAdmin },
       jwtSecret,
       { expiresIn: "1h" }, // Example: token expires in 1 hour
       (err, token) => {
@@ -118,6 +119,11 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
+// app.get("/admin", requireAdmin, (req, res) => {
+//   // Logic for fetching and showing bookings for admins
+//   res.json({ message: "Welcome to the admin dashboard" });
+// });
 
 app.get("/profile", (req, res) => {
   const { token } = req.cookies;

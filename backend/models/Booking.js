@@ -8,6 +8,11 @@ const bookingSchema = new mongoose.Schema({
   name: { type: String, required: true },
   phone: { type: String, required: true },
   price: Number,
+  status: {
+    type: String,
+    enum: ["pending", "approved", "rejected"],
+    default: "pending",
+  },
 });
 
 const BookingModel = mongoose.model("Booking", bookingSchema);
