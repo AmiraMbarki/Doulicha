@@ -58,7 +58,7 @@
 
 // VERSION improuved of the LoginPage down
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../UserContext.jsx";
@@ -66,9 +66,9 @@ import { UserContext } from "../UserContext.jsx";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [redirect, setRedirect] = useState(false);
+  const [redirect, setRedirect] = useState(false);
   const { setUser } = useContext(UserContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
@@ -80,12 +80,12 @@ export default function LoginPage() {
       const { data } = await axios.post("/login", { email, password });
       setUser(data);
       alert("Login successful");
-      // setRedirect(true);
-      if (data.isAdmin) {
-        navigate("/admin");
-      } else {
-        navigate("/");
-      }
+      setRedirect(true);
+      // if (data.isAdmin) {
+      //   navigate("/admin");
+      // } else {
+      //   navigate("/");
+      // }
     } catch (error) {
       if (error.response) {
         alert(error.response.data.error || "Login failed");
@@ -97,9 +97,9 @@ export default function LoginPage() {
     }
   }
 
-  // if (redirect) {
-  //    return <Navigate to={"/"} />;
-  // }
+  if (redirect) {
+    return <Navigate to={"/"} />;
+  }
 
   return (
     <div className="mt-4 grow flex items-center justify-around">
