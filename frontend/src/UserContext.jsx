@@ -10,14 +10,24 @@ export function UserContextProvider({ children }) {
 
   useEffect(() => {
     if (!user) {
-      const { data } = axios.get("/profile").then(({ data }) => {
-        setUser(data);
-        setReady(true);
-      });
-      setUser(data);
+      // const { data } = axios.get("/profile").then(({ data }) => {
+      //   setUser(data);
+      //   setReady(true);
+      // });
+      // setUser(data);
+      // elli louta tasli7 comment elli fou9
+      axios
+        .get("/profile")
+        .then(({ data }) => {
+          setUser(data); // Set the user state with the fetched data
+          setReady(true); // Set ready to true, meaning the data is loaded
+        })
+        .catch((error) => {
+          console.error("Error fetching the profile:", error);
+        });
     }
   }, [user]);
-  // zedt user fi west [] line 19
+
   return (
     <UserContext.Provider value={{ user, setUser, ready }}>
       {children}
